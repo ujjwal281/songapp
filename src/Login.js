@@ -98,9 +98,9 @@ export default function Login() {
     
         return () => (cancel = true)
     }, [search, token])
-    
+
     return (
-      <div className="">
+      <div>
                     {token ?
                         <div id="bodycolor">
                              <button onClick={logout} className="align-middle justify-center" id="loginauth">LOGOUT</button>
