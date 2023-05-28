@@ -101,9 +101,8 @@ export default function Login() {
     
     return (
       <div className="">
-                
                     {token ?
-                        <div>
+                        <div id="bodycolor">
                              <button onClick={logout} className="align-middle justify-center" id="loginauth">LOGOUT</button>
                         <Container className="d-flex flex-column py-1" style={{ height: "100vh" }}>
                 <Form.Control
@@ -121,22 +120,21 @@ export default function Login() {
                       />
                       ))}
                   {searchResults.length === 0 && (
-                      <div className="text-center" style={{ whiteSpace: "pre" }}>
-                        {/* <img src={image} width="500px" alt="noImage"/> */}
+                      <div className="text-center" id="lyricsPart" style={{ whiteSpace: "pre" }}>
+                    {/* <img src={image} width="500px" alt="noImage"/> */}
                           {lyrics}
                     </div>
                     )
                   }
                       </div>
-                          <div>
-                  <Player className="" token={token} trackUri={playingTrack?.uri} />
+              <div id="player">
+                  <Player className="playerControl" token={token} trackUri={playingTrack?.uri} />
                         </div>
                         </Container>
-                       
                 </div>
                         : <div className="flex justify-content-center align-bottom" id="loginBut" >
                             <a id="loginauth" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Login to Spotify</a>
-                            
+                    
               </div>
                     }
               

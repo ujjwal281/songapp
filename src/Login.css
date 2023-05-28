@@ -1,3 +1,8 @@
+#bodycolor{
+    background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+    background-color: rgb(32, 87, 100);
+}
+
 #loginauth{
     color: white;
     padding: 15px 15px;
@@ -17,3 +22,38 @@
     margin-top: 240px;
     font-size: 40px;
 }
+
+#lyricsPart{
+    color: rgb(198, 241, 251);
+    font-size: 30px;
+    height: 100%;
+    font-weight: 600;
+}
+
+::-webkit-scrollbar {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+    background-color: rgb(32, 87, 100);
+    width: 10px;
+    
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    display: none;
+    /* border-radius: 10px; */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb {
+    /* display: block; */
+    transition: ease-in-out 1s;
+    background: black 
+  }
+
+  #player{
+    position: fixed;
+    bottom: 1px;
+    left: 12px;
+    width: 1540px;
+    
+  }
