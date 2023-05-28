@@ -1,11 +1,10 @@
 import {useEffect, useState} from "react";
-import Footer from "./Footer";
 import SpotifyWebApi from "spotify-web-api-node"
 import { Container, Form } from "react-bootstrap"
 import Player from "./Player";
 import TrackSearchResult from "./TrackSearchResult";
-// import axios from 'axios';
-// import lyricsFinder from 'lyrics-finder';
+import axios from 'axios';
+import './Login.css'
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "5609644436ef41f7b05c81029bc84fbf",
@@ -23,8 +22,7 @@ export default function Login() {
     const [search, setSearch] = useState("")
     const [searchResults, setSearchResults] = useState([])
     const [playingTrack, setPlayingTrack] = useState()
-  const [lyrics, setLyrics] = useState("")
-  // const [image, setImage] = useState("")
+    const [lyrics, setLyrics] = useState("")
   
 
 
@@ -51,16 +49,20 @@ export default function Login() {
         setLyrics("")
   }
 
-  // useEffect(() => {
-    
-  //   if (!playingTrack) return
-  //   const lyricsfunc = () => {
-  //     const lyrics = (await lyricsFinder( playingTrack.title, playingTrack.artist)) || "No Lyrics" ;
-  //   setLyrics(lyrics);
-  //   }
-  //   lyricsfunc();
+  useEffect(() => {
+    if (!playingTrack) return
 
-  // }, [playingTrack])
+    axios
+      .get("http://localhost:5000/", {
+        params: {
+          track: playingTrack.title,
+          artist: playingTrack.artist,
+        },
+      })
+      .then(res => {
+        setLyrics(res.data.lyrics)
+      })
+  }, [playingTrack])
 
     useEffect(() => {
       if (!token) return
@@ -98,12 +100,11 @@ export default function Login() {
     }, [search, token])
     
     return (
-      <div className="bg-light">
-            <header className="">
-                <div>
+      <div className="">
+                
                     {token ?
                         <div>
-                             <button onClick={logout} className="align-middle justify-center">LOGOUT</button>
+                             <button onClick={logout} className="align-middle justify-center" id="loginauth">LOGOUT</button>
                         <Container className="d-flex flex-column py-1" style={{ height: "100vh" }}>
                 <Form.Control
                   type="search"
@@ -120,7 +121,7 @@ export default function Login() {
                       />
                       ))}
                   {searchResults.length === 0 && (
-                      <div className="text-center bg-light" style={{ whiteSpace: "pre" }}>
+                      <div className="text-center" style={{ whiteSpace: "pre" }}>
                         {/* <img src={image} width="500px" alt="noImage"/> */}
                           {lyrics}
                     </div>
@@ -128,25 +129,20 @@ export default function Login() {
                   }
                       </div>
                           <div>
-                  <Player token={token} trackUri={playingTrack?.uri} />
+                  <Player className="" token={token} trackUri={playingTrack?.uri} />
                         </div>
                         </Container>
                        
                 </div>
-                        : <div className="flex justify-content-center align-bottom">
-                            <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Login to Spotify</a>
-                            <div>
-                                login
-                </div>
+                        : <div className="flex justify-content-center align-bottom" id="loginBut" >
+                            <a id="loginauth" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Login to Spotify</a>
+                            
               </div>
                     }
               
-                </div>
+              
                 <br/>
-            </header>
-        <div>
-          <Footer/>
-            </div>
+           
         </div> 
     );
 }

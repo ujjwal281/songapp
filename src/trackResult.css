@@ -1,0 +1,18 @@
+#music{
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+#music:hover{
+   background-color: rgb(149, 149, 149);;
+   transition: ease-in-out 0.2s;
+   translate: 0px 5px;
+}
+
+
+
+
+#image{
+    border-radius: 12px;
+    padding: 4px 4px;
+
+}

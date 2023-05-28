@@ -1,0 +1,19 @@
+#loginauth{
+    color: white;
+    padding: 15px 15px;
+    text-decoration: none;
+    background-color: black;
+    border-radius: 20px;
+}
+
+#loginauth:hover{
+    background-color: rgb(47, 47, 47);
+}
+
+#loginBut{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top: 240px;
+    font-size: 40px;
+}

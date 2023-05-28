@@ -9,6 +9,7 @@ export default function Player({ token, trackUri }) {
   if (!token) return null
   return (
     <SpotifyPlayer
+      className=""
       token={token}
       showSaveIcon
       callback={state => {

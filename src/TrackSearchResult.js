@@ -1,25 +1,22 @@
 import React from "react"
-
+import './trackResult.css'
 export default function TrackSearchResult({ track, chooseTrack }) {
   function handlePlay() {
     chooseTrack(track)
   }
+
   return (
-    <div className="row m-2 align-items-center bg-light hover-bg-black" style={{ cursor: "pointer" }} onClick={handlePlay}>
-        <img className="col" src={track.albumUrl} style={{ height: "64px", width: "24px" }} alt="" />
-        <div className="col ml-3">
+    <div
+      className="d-flex m-2 align-items-center table-responsive-lg"
+      id="music"
+      style={{ cursor: "pointer" }}
+      onClick={handlePlay}
+    >
+      <img src={track.albumUrl} id="image" style={{ height: "64px", width: "64px" }} alt="" />
+      <div className="ml-5">
         <div>{track.title}</div>
-        <div className="col text-muted">{track.artist}</div>      
-        </div>
-        <div className="col flex-reverse -9fr"></div>
-        <div className="col flex-reverse -9fr"></div>
-        <div className="col flex-reverse -9fr"></div>
-        <div className="col flex-reverse -9fr"></div>
-        <div className="col flex-reverse -9fr"></div>
-        <div className="col flex-reverse -9fr"></div>
-        <div className="col flex-reverse -9fr"></div>
-        <div className="col flex-reverse -9fr"></div>
-        <div className="col flex-reverse -9fr"></div>
+        <div className="size">{track.artist}</div>
+      </div>
     </div>
   )
 }
