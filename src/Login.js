@@ -105,7 +105,8 @@ export default function Login() {
                         <div id="bodycolor">
                              <button onClick={logout} className="align-middle justify-center" id="loginauth">LOGOUT</button>
                         <Container className="d-flex flex-column py-1" style={{ height: "100vh" }}>
-                <Form.Control
+              <Form.Control
+                style={{ border:"none", background:"transparent" , boxShadow : "0 0 30px rgba(0,0,0,.5)" , color:"white"}}
                   type="search"
                   placeholder="Search Songs/Artists"
                   value={search}
