@@ -133,7 +133,7 @@ export default function Login() {
                         </Container>
                 </div>
                         : <div className="flex justify-content-center align-bottom" id="loginBut" >
-                            <a id="loginauth" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Login to Spotify</a>
+                            <a id="loginauth" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Login</a>
                     
               </div>
                     }
