@@ -5,7 +5,7 @@ import Player from "./Player";
 import TrackSearchResult from "./TrackSearchResult";
 import axios from 'axios';
 import './Login.css'
-import Home from "./Home";
+import Card from "./Card";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "5609644436ef41f7b05c81029bc84fbf",
@@ -24,8 +24,7 @@ export default function Login() {
     const [searchResults, setSearchResults] = useState([])
     const [playingTrack, setPlayingTrack] = useState()
     const [lyrics, setLyrics] = useState("")
-  
-
+    const [home, setHome] = useState("")
 
     useEffect(() => {
         const hash = window.location.hash
@@ -75,7 +74,7 @@ export default function Login() {
         if (!token) return
         let cancel = false
         spotifyApi.searchTracks(search).then(res => {
-            console.log(res);
+            
           if (cancel) return
           setSearchResults(
             res.body.tracks.items.map(track => {
@@ -86,11 +85,13 @@ export default function Login() {
                 },
                 track.album.images[0]
               )
-              return {
-                artist: track.artists[0].name,
-                title: track.name,
-                uri: track.uri,
-                albumUrl: smallestAlbumImage.url,
+              setHome(track.name);
+             
+              return{
+                  artist: track.artists[0].name,
+                  title: track.name,
+                  uri: track.uri,
+                  albumUrl: smallestAlbumImage.url,
               }
             })
           )
@@ -114,11 +115,16 @@ export default function Login() {
               />
           
               {!search && !lyrics &&
-                 <Home/>
+                <div className="flex ">
+                  
+                  <Card
+                    home={home}
+                  />
+                  </div>
                 }
              
               
-                <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
+                <div className="grid col" style={{ overflowY: "auto" }}>
                   {searchResults.map(track => (
                       <TrackSearchResult
                       track={track}
