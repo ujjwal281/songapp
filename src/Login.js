@@ -16,7 +16,7 @@ export default function Login() {
   const CLIENT_ID = "5609644436ef41f7b05c81029bc84fbf";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const REDIRECT_URI ="http://localhost:3000/";
-  const SCOPE = "streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
+  const SCOPE = "streaming%30user-read-email%30user-read-private%30user-library-read%30user-library-modify%30user-read-playback-state%30user-modify-playback-state"
   const RESPONSE_TYPE = "token"
 
     const [token, setToken] = useState("")
@@ -124,7 +124,7 @@ export default function Login() {
                 }
              
               
-                <div className="grid col" style={{ overflowY: "auto" }}>
+                <div className="grid row my-2 h-75" style={{ overflowY: "auto" }}>
                   {searchResults.map(track => (
                       <TrackSearchResult
                       track={track}

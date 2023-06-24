@@ -8,15 +8,15 @@ export default function TrackSearchResult({ track, chooseTrack }) {
 
   return (
     <div
-      className="d-flex m-2 align-items-center table-responsive-lg text-white transition-delay: 0s "
+      className="col m-2 align-items-center table-responsive-lg text-white "
       id="music"
       style={{ cursor: "pointer" }}
       onClick={handlePlay}
     >
-      <img src={track.albumUrl} id="image" style={{ height: "64px", width: "64px" }} alt="" />
+      <img src={track.albumUrl} id="image" style={{ height: "164px", width: "140px" }} alt="" />
       <div className="ml-5">
-        <div>{track.title}</div>
-        <div className="size">{track.artist}</div>
+        <div className="fs-5 ">{track.title}</div>
+        <div className="fs-6 text-light-emphasis">{track.artist}</div>
       </div>
     </div>
   )
