@@ -5,6 +5,7 @@ import Player from "./Player";
 import TrackSearchResult from "./TrackSearchResult";
 import axios from 'axios';
 import './Login.css'
+import Home from "./Home";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "5609644436ef41f7b05c81029bc84fbf",
@@ -85,7 +86,6 @@ export default function Login() {
                 },
                 track.album.images[0]
               )
-              
               return {
                 artist: track.artists[0].name,
                 title: track.name,
@@ -111,7 +111,13 @@ export default function Login() {
                   placeholder="Search Songs/Artists"
                   value={search}
                   onChange={e => setSearch(e.target.value)}
-                  />
+              />
+          
+              {!search && !lyrics &&
+                 <Home/>
+                }
+             
+              
                 <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
                   {searchResults.map(track => (
                       <TrackSearchResult
@@ -127,10 +133,12 @@ export default function Login() {
                     </div>
                     )
                   }
-                      </div>
-              <div id="player">
+              </div>
+              <div id="player" className="fixed-bottom w-100 p-2">
+              <div  className="flex justify-content-center align-content-lg-center">
                   <Player className="playerControl" token={token} trackUri={playingTrack?.uri} />
                         </div>
+              </div>
                         </Container>
                 </div>
                         : <div className="flex justify-content-center align-bottom" id="loginBut" >
@@ -139,8 +147,9 @@ export default function Login() {
               </div>
                     }
               
-              
-                <br/>
+        <br />
+        
+
            
         </div> 
     );

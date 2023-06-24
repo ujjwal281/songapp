@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', async(req, res) => {
 
     const lyrics =
-    (await lyricsFinder(req.query.artist, req.query.track)) || "No Lyrics Found"
+    (await lyricsFinder(req.query.artist, req.query.track)) || ""
     res.json({ lyrics })
     
 })
