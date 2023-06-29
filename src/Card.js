@@ -4,7 +4,7 @@ const Card = (props) => {
     console.log(props.home)
   return (
     <div className="">
-      Searh any Son
+      Searh any Song
     </div>
   )
 }
