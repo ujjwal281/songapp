@@ -1,6 +1,6 @@
 #bodycolor{
     background: linear-gradient(transparent, rgba(0, 0, 0, 1));
-    background-color: rgb(32, 87, 100);
+    background-color: rgb(27, 33, 112);
     max-height: 100%;
 }
 
@@ -33,7 +33,7 @@
 
 ::-webkit-scrollbar {
     background: linear-gradient(transparent, rgba(0, 0, 0, 1));
-    background-color: rgb(32, 87, 100);
+    background-color: rgb(37, 69, 173);
     width: 10px;
     
   }
