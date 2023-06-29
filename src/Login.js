@@ -115,8 +115,7 @@ export default function Login() {
               />
           
               {!search && !lyrics &&
-                <div className="flex ">
-                  
+                <div className="flex h-100 justify-content-center align-items-center">
                   <Card
                     home={home}
                   />
