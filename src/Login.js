@@ -110,7 +110,7 @@ export default function Login() {
                 style={{ border:"none", background:"transparent" , boxShadow : "0 0 30px rgba(0,0,0,.5)" , color:"white"}}
                   type="search"
                   placeholder="Search Songs/Artists"
-                  value={search}
+                value={search}
                   onChange={e => setSearch(e.target.value)}
               />
           
